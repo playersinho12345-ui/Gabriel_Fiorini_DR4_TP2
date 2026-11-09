@@ -1,0 +1,43 @@
+﻿@page "/Exercicio07"
+@model Gabriel_Fiorini_DR4_TP2_CountryManager_.Pages.CountryManager.Exercicio07.CreateCountry07Model
+@{
+}
+
+<h1>Cadastrar países</h1>
+
+<form method="post">
+    <table>
+        <tr>
+            <th>Nome do país</th>
+            <th>Código</th>
+        </tr>
+
+        @for (int i = 0; i < Model.Inputs.Count; i++)
+        {
+            <tr>
+                <td><input asp-for="Inputs[i].CountryName" /></td>
+                <td>
+                    <input asp-for="Inputs[i].CountryCode" />
+                    <div asp-validation-for="Inputs[i].CountryCode" style="color:red"></div>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+@if (Model.CreatedCountries.Count > 0)
+{
+    <h2>Países cadastrados</h2>
+    <ul>
+        @foreach (var country in Model.CreatedCountries)
+        {
+            <li>@country.CountryName (@country.CountryCode)</li>
+        }
+    </ul>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

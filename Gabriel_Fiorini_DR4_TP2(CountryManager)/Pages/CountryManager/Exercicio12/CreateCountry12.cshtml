@@ -1,0 +1,32 @@
+﻿@page "/Exercicio12"
+@model Gabriel_Fiorini_DR4_TP2_CountryManager_.Pages.CountryManager.Exercicio12.CreateCountry12Model
+
+<h1>Cadastrar país</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.CountryName">Nome do país:</label>
+        <input asp-for="Input.CountryName" />
+        <div> <span asp-validation-for="Input.CountryName" style="color:red"></span></div>
+    </div>
+
+    <div>
+        <label asp-for="Input.CountryCode">Código do país:</label>
+        <input asp-for="Input.CountryCode" />
+        <div><span asp-validation-for="Input.CountryCode" style="color:red"></span></div>
+    </div>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+@if (Model.CreatedCountry != null)
+{
+    <p style="color:green">
+        País cadastrado: <strong>@Model.CreatedCountry.CountryName</strong>
+        (<strong>@Model.CreatedCountry.CountryCode</strong>)
+    </p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
