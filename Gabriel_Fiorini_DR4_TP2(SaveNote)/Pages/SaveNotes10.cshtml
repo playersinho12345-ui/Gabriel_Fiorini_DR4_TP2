@@ -1,0 +1,24 @@
+﻿@page "/Exercicio10"
+@model Gabriel_Fiorini_DR4_TP2_SaveNote_.Pages.SaveNotesModel
+@{
+}
+
+<h1>Salvar anotação</h1>
+
+<form method="post">
+    <label asp-for="Input.Content">Texto:</label><br />
+    <textarea asp-for="Input.Content" rows="6" cols="50"></textarea>
+    <div> <span asp-validation-for="Input.Content" style="color:red"></span></div>
+
+    <button type="submit">Salvar</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p style="color:green"><strong>@Model.Message</strong></p>
+    <p><a href="@Model.DownloadUrl" download>Baixar arquivo</a></p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
