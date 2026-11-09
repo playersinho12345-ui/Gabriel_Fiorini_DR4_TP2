@@ -1,0 +1,17 @@
+﻿@page "/Exercicio01"
+@model Gabriel_Fiorini_DR4_TP2_CityManager_.Pages.CityManager.Exercicio01.CreateCity01Model
+@{
+}
+
+<h1>Cadastrar cidade turística</h1>
+
+<form method="post">
+    <label>Nome da cidade:</label>
+    <input asp-for="CityName" />
+    <button type="submit">Cadastrar</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.CityName))
+{
+    <p>Cidade submetida: <strong>@Model.CityName</strong></p>
+}

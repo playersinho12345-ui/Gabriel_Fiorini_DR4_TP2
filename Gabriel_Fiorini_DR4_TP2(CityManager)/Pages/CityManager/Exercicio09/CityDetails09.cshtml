@@ -1,0 +1,13 @@
+﻿@page "/Exercicio09"
+@model Gabriel_Fiorini_DR4_TP2_CityManager_.Pages.CityManager.Exercicio09.CityDetails09Model
+
+<h1>Cidades turísticas</h1>
+
+<ul>
+    @foreach (var city in Model.Cities)
+    {
+        <li>
+            <a asp-page="/CityManager/CityDetails" asp-route-cityName="@city">@city</a>
+        </li>
+    }
+</ul>
